@@ -7,9 +7,9 @@ Gem::Specification.new do |spec|
   spec.name          = "mock_aws_s3_on_memory"
   spec.version       = MockAwsS3OnMemory::VERSION
   spec.authors       = ["Yoshiori SHOJI"]
-  spec.email         = ["yoshiori@cookpad.com"]
-  spec.summary       = %q{TODO: Write a short summary. Required.}
-  spec.description   = %q{TODO: Write a longer description. Optional.}
+  spec.email         = ["yoshiori@gmail.com"]
+  spec.summary       = %q{simple AWS::S3 mock.  so you can use it in your tests without  use the network.}
+  spec.description   = spec.summary
   spec.homepage      = ""
   spec.license       = "MIT"
 
