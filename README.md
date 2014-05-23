@@ -47,7 +47,7 @@ end
 [7] pry(main)> obj.exists?
 => false
 ```
-more example this library's spec file
+more example [this library's spec file](spec)
 
 ## Contributing
 
