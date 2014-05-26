@@ -47,6 +47,32 @@ end
 [7] pry(main)> obj.exists?
 => false
 ```
+
+collection API
+
+```ruby
+[1] pry(main)> require 'mock_aws_s3_on_memory'
+=> true
+[2] pry(main)> bucket = AWS::S3.new.buckets['my-bucket']
+=> #<AWS::S3::Bucket:my-bucket>
+[3] pry(main)> bucket.objects["cookpad/recipe/1"].write("foo")
+=> #<StringIO:0x007fbe6fb03b70>
+[4] pry(main)> bucket.objects["cookpad/recipe/2"].write("foo")
+=> #<StringIO:0x007fbe6fb308c8>
+[5] pry(main)> bucket.objects["cookpad/tsukurepo/1"].write("foo")
+=> #<StringIO:0x007fbe6fb58760>
+[6] pry(main)> bucket.objects["cookstep/school/1"].write("foo")
+=> #<StringIO:0x007fbe6fb80968>
+[7] pry(main)> bucket.objects.with_prefix("cookpad/").map(&:key)
+=> ["cookpad/recipe/1", "cookpad/recipe/2", "cookpad/tsukurepo/1"]
+[8] pry(main)> bucket.objects.with_prefix("cookpad/").with_prefix('recipe/', :append).map(&:key)
+=> ["cookpad/recipe/1", "cookpad/recipe/2"]
+[9] pry(main)> bucket.objects.with_prefix("cookpad/").with_prefix('recipe/', :append).delete_all
+=> nil
+[10] pry(main)> bucket.objects.map(&:key)
+=> ["cookpad/tsukurepo/1", "cookstep/school/1"]
+```
+
 more example [this library's spec file](spec)
 
 ## Contributing

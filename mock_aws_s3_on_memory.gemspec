@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["yoshiori@gmail.com"]
   spec.summary       = %q{simple AWS::S3 mock.  so you can use it in your tests without  use the network.}
   spec.description   = spec.summary
-  spec.homepage      = ""
+  spec.homepage      = "https://github.com/yoshiori/mock_aws_s3_on_memory"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0")
